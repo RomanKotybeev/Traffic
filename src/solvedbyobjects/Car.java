@@ -4,13 +4,13 @@ package solvedbyobjects;
  * A class represent cars on the road
  */
 public abstract class Car {
-	//position of a car
+	// position of a car
 	protected int position;
-	//velocity of a car
+	// velocity of a car
 	protected int velocity;
-	//lane on which a car will move
+	// lane on which a car will move
 	protected int laneIndex;
-	//the maximum of velocity
+	// the maximum of velocity
 	protected final int VMAX = 5;
 
 
@@ -20,8 +20,8 @@ public abstract class Car {
 	    this.laneIndex = laneIndex;
 	} 
 	
-	//a car moves forward or backward
-	//to implement this was created CarForward and CarBackward classes 
+	// A car moves forward or backward
+	// To implement this was created CarForward and CarBackward classes 
 	public abstract void move();
 
 	/*
@@ -39,19 +39,14 @@ public abstract class Car {
 		return laneIndex;
 	}
 
-	
-//	public void moveBack() {
-//	    position -= velocity;
-//	}
-
-	//According to the Nagel-Schrekenberg model a car increase velocity by one until vmax
+	// According to the Nagel-Schrekenberg model a car increase velocity by one until vmax
 	public void speedUp() {
 		if (velocity < VMAX) {
 			velocity++;
 	    }
 	}
 	
-	//if the velocity of a car is more than distance to the closest car It needs to equate its velocity to distance
+	// If the velocity of a car is more than distance to the closest car It needs to equate its velocity to distance
 	public void speedDown(Road road) {
 		int distanceToClosestCar = road.distanceToClosestTo(this);
 		if (velocity >= distanceToClosestCar) {
